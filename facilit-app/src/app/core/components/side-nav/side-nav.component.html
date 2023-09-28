@@ -5,8 +5,8 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar><mat-icon fontIcon="troubleshoot"></mat-icon>FACILITA APP</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#"><mat-icon fontIcon="dashboard"></mat-icon>DASHBOARD</a>
-      <a mat-list-item href="#"><mat-icon fontIcon="receipt_long"></mat-icon>TRANSAÇÕES</a>
+      <a mat-list-item href="#" [routerLink]="['dashboard']" routerLinkActive="router-link-active"><mat-icon fontIcon="dashboard"></mat-icon>DASHBOARD</a>
+      <a mat-list-item href="#" [routerLink]="['transctionslist']" routerLinkActive="router-link-active" ><mat-icon fontIcon="receipt_long"></mat-icon>TRANSAÇÕES</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
