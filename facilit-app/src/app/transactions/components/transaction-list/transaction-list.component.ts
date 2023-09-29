@@ -1,25 +1,24 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Transaction } from 'src/app/model/transaction.model';
 import { TransactionService } from 'src/app/service/transaction.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatInput } from '@angular/material/input';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+
 
 @Component({
   selector: 'app-transaction-list',
   templateUrl: './transaction-list.component.html',
   styleUrls: ['./transaction-list.component.css']
 })
-export class TransactionListComponent implements OnInit, AfterViewInit {
+export class TransactionListComponent implements OnInit {
   dataSource: MatTableDataSource<Transaction>;
-  displayedColumns: string[] = [
-    'id',
-    'cardBrand',
-    'paymentNode',
-    
-    'date',
-    'status'
-  ];
-  @ViewChild('input') input!: MatInput;  // Add '!' to indicate that it will be initialized
+  displayedColumns: string[] = ['id', 'cardBrand', 'paymentNode', 'date', 'status'];
+
+@ViewChild(MatPaginator) paginator!: MatPaginator;
+@ViewChild(MatSort) sort!: MatSort;
+
 
   constructor(private transactionService: TransactionService) {
     this.dataSource = new MatTableDataSource<Transaction>();
@@ -37,8 +36,8 @@ export class TransactionListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // 'input' is now initialized and ready to use
-    // You can do something with 'this.input' here if needed
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
