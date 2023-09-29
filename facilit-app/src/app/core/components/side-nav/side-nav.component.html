@@ -8,25 +8,38 @@
       <img mat-card-image class="w-75 ms-3" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Logo_Facily.png" alt="">
     </mat-toolbar>
     <mat-nav-list class="border-top">
-      <a mat-list-item href="#" [routerLink]="['dashboard']" routerLinkActive="router-link-active"><mat-icon fontIcon="dashboard"></mat-icon>DASHBOARD</a>
-      <a mat-list-item href="#" [routerLink]="['transctionslist']" routerLinkActive="router-link-active" ><mat-icon fontIcon="receipt_long"></mat-icon>TRANSAÇÕES</a>
+      <!-- <a mat-list-item  href="#" [routerLink]="['dashboard']" routerLinkActive="router-link-active"><mat-icon fontIcon="dashboard"></mat-icon>DASHBOARD</a> -->
+      <!-- <a mat-list-item  href="#" [routerLink]="['transctionslist']" routerLinkActive="router-link-active" ><mat-icon fontIcon="receipt_long"></mat-icon>TRANSAÇÕES</a> -->
       
-      <button mat-flat-button extended color="accent" [routerLink]="['dashboard']"><mat-icon>receipt_long</mat-icon>Accent</button>
-      <button mat-flat-button extended color="accent" [routerLink]="['transctionslist']"><mat-icon>receipt_long</mat-icon>Accent</button>
-      <button mat-raised-button extended color="warn" [routerLink]="['dashboard']"><mat-icon>dashboard</mat-icon>Warn</button>
-      <button mat-raised-button color="warn" [routerLink]="['transctionslist']"><mat-icon>dashboard</mat-icon>Warn</button>
-
-
-      <button mat-fab extended>
-        <mat-icon>home</mat-icon>
-        Home
-      </button>
-      <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-        <mat-icon>delete</mat-icon>
-      </button>
-      <button type="button" class="btn btn-primary btn-lg btn-block"><mat-icon>dashboard</mat-icon>Block level button</button>
-      <a href="#" class="btn btn-primary btn-lg " role="button" aria-pressed="true"><mat-icon>dashboard</mat-icon>Primary link</a>
-      <button type="button" class="btn btn-danger">Danger</button>
+      <button mat-flat-button class="mb-2 fs-5 bg-primary text-white" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['dashboard']">
+        <mat-icon>dashboard</mat-icon>DASHBOARD</button>
+      <!-- <button mat-flat-button class="mb-2" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+        <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button>
+      <button mat-flat-button class="mb-2" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);" color="warn" [routerLink]="['dashboard']">
+          <mat-icon>dashboard</mat-icon>DASHBOARD</button>
+      <button mat-flat-button class="mb-2" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);" color="accent" [routerLink]="['dashboard']">
+        <mat-icon>dashboard</mat-icon>DASHBOARD</button>
+      
+      
+      <button mat-flat-button class="mb-2 bg-primary" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+      <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button>
+      <button mat-flat-button class="mb-2 bg-secondary" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+      <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button>
+      <button mat-flat-button class="mb-2 bg-success" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+      <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button>
+      <button mat-flat-button class="mb-2 bg-danger" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+      <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button> -->
+      <button mat-flat-button class="mb-2 bg-info fs-5 text-white" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+      <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button>
+      <!-- <button mat-flat-button class="mb-2 bg-info" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+      <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button>
+      <button mat-flat-button class="mb-2 bg-light" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+      <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button>
+      <button mat-flat-button class="mb-2 bg-dark" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+      <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button>
+      <button mat-flat-button class="mb-2 bg-white" style="padding: 10%; width: 99%; border: 0; box-shadow: 0 0 30px 0 rgba(82, 63, 105, 0.05);"  [routerLink]="['transctionslist']">
+      <mat-icon>receipt_long</mat-icon>TRANSAÇÕES</button> -->
+      
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
