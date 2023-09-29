@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js/auto';
-import { CardData } from './card-data.model';
+import { CardData } from '../../model/card-data.model';
+import { ChartService } from '../../service/chart.service';
 
 @Component({
   selector: 'app-chart',
@@ -10,12 +10,11 @@ import { CardData } from './card-data.model';
 })
 export class ChartComponent implements OnInit {
   @ViewChild("meuCanvas", { static: true }) elemento!: ElementRef;
-  private apiUrl = 'http://localhost:3000/items'; // Altere a URL da sua API conforme necessário
 
-  constructor(private http: HttpClient) { }
+  constructor(private chartService: ChartService) { }
 
   ngOnInit() {
-    this.http.get<any[]>(this.apiUrl).subscribe(data => {
+    this.chartService.getData().subscribe((data: any[]) => {
       const cardBrandCounts = this.calculateCardBrandCounts(data);
       this.createChart(cardBrandCounts);
     });
@@ -39,14 +38,19 @@ export class ChartComponent implements OnInit {
     const labels = cardBrandCounts.map(item => item.cardBrand);
     const quantities = cardBrandCounts.map(item => item.quantity);
 
+    // Use a predefined set of colors or add more as needed
+    const colors = ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)'];
+
+    const backgroundColors = colors.slice(0, labels.length);
+
     const chartOptions = {
       scales: {
         y: {
           beginAtZero: true
         }
       },
-      maintainAspectRatio: false, // Torna o gráfico responsivo
-      responsive: true // Habilita a responsividade
+      maintainAspectRatio: false,
+      responsive: true
     };
 
     new Chart(this.elemento.nativeElement, {
@@ -57,8 +61,8 @@ export class ChartComponent implements OnInit {
           {
             label: 'Quantidade',
             data: quantities,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: backgroundColors,
+            borderColor: backgroundColors.map(color => color.replace('0.2', '1')),
             borderWidth: 1
           }
         ]
