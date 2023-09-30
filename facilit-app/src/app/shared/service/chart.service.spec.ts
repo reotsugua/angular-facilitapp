@@ -1,16 +1,18 @@
-import { TestBed } from '@angular/core/testing';
-
+import { Component, OnInit } from '@angular/core';
 import { ChartService } from './chart.service';
 
-describe('ChartService', () => {
-  let service: ChartService;
+@Component({
+  selector: 'app-chart',
+  template: '<div>Chart data: {{ chartData | json }}</div>'
+})
+export class ChartComponent implements OnInit {
+  chartData: any[] = [];  
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ChartService);
-  });
+  constructor(private chartService: ChartService) {}
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  ngOnInit(): void {
+    this.chartService.getData().subscribe(data => {
+      this.chartData = data;
+    });
+  }
+}
