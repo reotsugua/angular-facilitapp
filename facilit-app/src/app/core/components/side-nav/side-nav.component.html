@@ -6,6 +6,10 @@
     <mat-toolbar class="m-1">
       <!-- <mat-icon fontIcon="troubleshoot"></mat-icon>FACILITA APP -->
       <img mat-card-image class="w-75 ms-3" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Logo_Facily.png" alt="">
+      <mat-icon class="button-close" aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async" >close</mat-icon>
     </mat-toolbar>
     <mat-nav-list class="border-top">
       <!-- <a mat-list-item  href="#" [routerLink]="['dashboard']" routerLinkActive="router-link-active"><mat-icon fontIcon="dashboard"></mat-icon>DASHBOARD</a> -->
@@ -53,7 +57,7 @@
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <span>My Application</span>
+        <span>FACILY APP</span>
       <span class="example-spacer"></span>
       <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon>favorite</mat-icon>
