@@ -6,6 +6,7 @@ import { ResumeTransComponent } from './components/resume-trans/resume-trans.com
 import { CurrencyFormatPipe } from './components/pipe/currency-format.pipe';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { PieChartsComponent } from './components/pie-charts/pie-charts.component';
+import { DateFormatPipe } from './components/pipe/date-format.pipe';
 
 
 
@@ -17,6 +18,7 @@ import { PieChartsComponent } from './components/pie-charts/pie-charts.component
     CurrencyFormatPipe,
     LineChartComponent,
     PieChartsComponent,
+    DateFormatPipe,
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { PieChartsComponent } from './components/pie-charts/pie-charts.component
     ResumeTransComponent,
     CurrencyFormatPipe,
     LineChartComponent,
-    PieChartsComponent
+    PieChartsComponent,
+    DateFormatPipe
   ]
 })
 export class SharedModule { }

@@ -66,14 +66,14 @@ export class LineChartComponent implements OnInit {
         labels: labels,
         datasets: [
           {
-            label: 'Total Gross Amount',
+            label: 'Total Valor Bruto',
             data: grossAmounts,
             borderColor: 'rgba(54, 162, 235, 1)',
             borderWidth: 1,
             fill: false
           },
           {
-            label: 'Total Net Amount',
+            label: 'Total Valor Líquido',
             data: netAmounts,
             borderColor: 'rgba(255, 99, 132, 1)',
             borderWidth: 1,

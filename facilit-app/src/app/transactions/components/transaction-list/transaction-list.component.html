@@ -6,18 +6,7 @@
     <app-download-csv-button></app-download-csv-button>
   
     <div class="mat-elevation-z8 h-100 shadow-none" >
-        <div *ngIf="selectedTransaction" class="detail-view">
-            <h2>Transaction Details</h2>
-            <ul>
-              <li><strong>ID:</strong> {{ selectedTransaction.id }}</li>
-              <li><strong>Date:</strong> {{ selectedTransaction.date }}</li>
-              <li><strong>Payment Type:</strong> {{ selectedTransaction.paymentType }}</li>
-              <li><strong>Gross Amount:</strong> {{ selectedTransaction.grossAmount }}</li>
-              <li><strong>Net Amount:</strong> {{ selectedTransaction.netAmount }}</li>
-              <li><strong>Status:</strong> {{ selectedTransaction.status }}</li>
-              <!-- Add more details as needed -->
-            </ul>
-          </div>
+        
       <!-- transactions.component.html -->
       
       
@@ -32,7 +21,7 @@
         <!-- Merchant ID Column -->
         <ng-container matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef> DATA </th>
-          <td mat-cell *matCellDef="let transaction"> {{ transaction.date }} </td>
+          <td mat-cell *matCellDef="let transaction"> {{ transaction.date | dateFormat  }} </td>
         </ng-container>
     
         <!-- Payment Node Column -->
@@ -44,13 +33,13 @@
         <!-- Date Column -->
         <ng-container matColumnDef="grossAmount">
           <th mat-header-cell *matHeaderCellDef> VALOR BRUTO</th>
-          <td mat-cell *matCellDef="let transaction"> {{ transaction.grossAmount }} </td>
+          <td mat-cell *matCellDef="let transaction"> {{ transaction.grossAmount | currencyFormat }} </td>
         </ng-container>
     
         <!-- Date Column -->
         <ng-container matColumnDef="netAmount">
           <th mat-header-cell *matHeaderCellDef> VALOR LÍQUIDO</th>
-          <td mat-cell *matCellDef="let transaction"> {{ transaction.netAmount }} </td>
+          <td mat-cell *matCellDef="let transaction"> {{ transaction.netAmount | currencyFormat }} </td>
         </ng-container>
     
         <!-- Payment Type Column -->

@@ -67,7 +67,7 @@ export class PieChartsComponent implements OnInit {
         }]
       },
       options: {
-        // Adicione suas opções de gráfico aqui, se necessário
+        
       }
     });
   }
