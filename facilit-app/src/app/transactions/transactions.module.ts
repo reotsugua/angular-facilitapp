@@ -6,6 +6,9 @@ import { MatTableModule } from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TransactionDialogComponent } from './components/transaction-dialog/transaction-dialog.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -13,7 +16,8 @@ import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
-    TransactionListComponent
+    TransactionListComponent,
+    TransactionDialogComponent
   ],
   imports: [
     CommonModule,
@@ -21,10 +25,13 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule,
+    SharedModule
   ],
   exports: [
-    TransactionListComponent
+    TransactionListComponent,
+    TransactionDialogComponent
   ]
 })
 export class TransactionsModule { }

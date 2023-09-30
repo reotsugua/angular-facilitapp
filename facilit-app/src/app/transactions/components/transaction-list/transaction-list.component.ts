@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatInput } from '@angular/material/input';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { TransactionDialogComponent } from '../transaction-dialog/transaction-dialog.component';
 
 
 @Component({
@@ -14,26 +16,50 @@ import { MatSort } from '@angular/material/sort';
 })
 export class TransactionListComponent implements OnInit {
   dataSource: MatTableDataSource<Transaction>;
-  displayedColumns: string[] = ['id', 'cardBrand', 'paymentNode', 'date', 'status'];
+  displayedColumns: string[] = [
+    'id',
+    'date',
+    'paymentType',
+    'grossAmount',
+    'netAmount',
+    'status'
+  ];
+
+  selectedTransaction: Transaction | null;
 
 @ViewChild(MatPaginator) paginator!: MatPaginator;
 @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor(private transactionService: TransactionService) {
-    this.dataSource = new MatTableDataSource<Transaction>();
-  }
+constructor(
+  private transactionService: TransactionService,
+  private dialog: MatDialog
+) {
+  this.dataSource = new MatTableDataSource<Transaction>();
+  this.selectedTransaction = null;
+}
 
-  ngOnInit(): void {
-    this.transactionService.getTransactions().subscribe(
-      (data) => {
-        this.dataSource.data = data;
-      },
-      (error) => {
-        console.error('Error fetching transactions:', error);
-      }
-    );
-  }
+showTransactionDetails(transaction: Transaction) {
+  const dialogRef = this.dialog.open(TransactionDialogComponent, {
+    width: '400px', // Adjust the width as needed
+    data: transaction
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+  });
+}
+
+ngOnInit(): void {
+  this.transactionService.getTransactions().subscribe(
+    (data) => {
+      this.dataSource.data = data;
+    },
+    (error) => {
+      console.error('Error fetching transactions:', error);
+    }
+  );
+}
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;

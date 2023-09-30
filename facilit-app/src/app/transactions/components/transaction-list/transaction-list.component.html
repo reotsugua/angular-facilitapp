@@ -5,43 +5,77 @@
 <div class="grid-container px-3">
   
     <div class="mat-elevation-z8 h-100 shadow-none" >
-      <table mat-table [dataSource]="dataSource" matSort>
-  
+        <div *ngIf="selectedTransaction" class="detail-view">
+            <h2>Transaction Details</h2>
+            <ul>
+              <li><strong>ID:</strong> {{ selectedTransaction.id }}</li>
+              <li><strong>Date:</strong> {{ selectedTransaction.date }}</li>
+              <li><strong>Payment Type:</strong> {{ selectedTransaction.paymentType }}</li>
+              <li><strong>Gross Amount:</strong> {{ selectedTransaction.grossAmount }}</li>
+              <li><strong>Net Amount:</strong> {{ selectedTransaction.netAmount }}</li>
+              <li><strong>Status:</strong> {{ selectedTransaction.status }}</li>
+              <!-- Add more details as needed -->
+            </ul>
+          </div>
+      <!-- transactions.component.html -->
+      
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
         <!-- ID Column -->
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <th mat-header-cell *matHeaderCellDef> ID PEDIDO</th>
           <td mat-cell *matCellDef="let transaction"> {{ transaction.id }} </td>
         </ng-container>
-  
+    
         <!-- Merchant ID Column -->
-        <ng-container matColumnDef="cardBrand">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Card Brand </th>
-          <td mat-cell *matCellDef="let transaction"> {{ transaction.cardBrand }} </td>
-        </ng-container>
-  
-        <!-- Payment Node Column -->
-        <ng-container matColumnDef="paymentNode">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment Node </th>
-          <td mat-cell *matCellDef="let transaction"> {{ transaction.paymentNode }} </td>
-        </ng-container>
-  
-        <!-- Date Column -->
         <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+          <th mat-header-cell *matHeaderCellDef> DATA </th>
           <td mat-cell *matCellDef="let transaction"> {{ transaction.date }} </td>
         </ng-container>
-  
-        <!-- Status Column -->
+    
+        <!-- Payment Node Column -->
+        <ng-container matColumnDef="paymentType">
+          <th mat-header-cell *matHeaderCellDef> TIPO </th>
+          <td mat-cell *matCellDef="let transaction"> {{ transaction.paymentType }} </td>
+        </ng-container>
+    
+        <!-- Date Column -->
+        <ng-container matColumnDef="grossAmount">
+          <th mat-header-cell *matHeaderCellDef> VALOR BRUTO</th>
+          <td mat-cell *matCellDef="let transaction"> {{ transaction.grossAmount }} </td>
+        </ng-container>
+    
+        <!-- Date Column -->
+        <ng-container matColumnDef="netAmount">
+          <th mat-header-cell *matHeaderCellDef> VALOR LÍQUIDO</th>
+          <td mat-cell *matCellDef="let transaction"> {{ transaction.netAmount }} </td>
+        </ng-container>
+    
+        <!-- Payment Type Column -->
         <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+          <th mat-header-cell *matHeaderCellDef> STATUS </th>
           <td mat-cell *matCellDef="let transaction"> {{ transaction.status }} </td>
         </ng-container>
-  
+    
         <!-- Add more columns for other fields -->
-  
+    
+    
+    
+    
+    
+    
+    
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
+        <!-- ... Existing code ... -->
+    
+        <tr mat-row *matRowDef="let transaction; columns: displayedColumns;" (click)="showTransactionDetails(transaction)">
+        </tr>
+        
+    
+        <!-- ... Existing code ... -->
+    
+    
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" [attr.colspan]="displayedColumns.length">No data matching the filter "{{input.value}}"</td>
