@@ -1,4 +1,5 @@
 # angular-dashboard-vendas-resume
+para saber mais sobre o projeto, acesse a pasta facilit-app/documentation
 ## Documentação: Instalação, Execução e Teste do Componente
 
 Este documento descreve como instalar, executar e testar o componente. Certifique-se de seguir os passos detalhadamente para garantir um funcionamento adequado do projeto.
