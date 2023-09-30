@@ -23,7 +23,7 @@ Este documento descreve como instalar, executar e testar o componente. Certifiqu
     Antes de executar o Angular, é necessário rodar o JSON Server. Certifique-se de que o JSON Server está instalado globalmente (caso contrário, instale-o com npm install -g json-server). Navegue até a pasta /server e siga as instruções do reame.md
 
     Certifique-se de que o servidor esteja rodando antes de prosseguir.
-    
+
 3. **Executar o Angular:**
 
     Volte para a raiz do projeto e execute o seguinte comando para iniciar o aplicativo Angular:
@@ -36,9 +36,9 @@ Este documento descreve como instalar, executar e testar o componente. Certifiqu
     O aplicativo será iniciado e estará disponível em http://localhost:4200.
 
 
-**Teste do Projeto**
+4. **Teste do Projeto**
 
 
     ```bash
-   ng test
+        ng test
     ```
