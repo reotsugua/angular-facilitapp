@@ -1,0 +1,89 @@
+<!-- <ul>
+    <li><strong>ID:</strong> {{ data.id }}</li>
+    
+  </ul>
+  <button mat-button (click)="close()">Close</button> -->
+  <mat-dialog-content style="width: 425px;" class="mat-typography">
+    <table class="table  table-striped">
+        <thead>
+          <tr>
+            <th scope="col">chave</th>
+            <th scope="col">valor</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr>
+            <th scope="row">ID TRANSAÇÃO</th>
+            <td>{{ data.id }}<td>
+          </tr>
+          <tr>
+            <th scope="row">ID COMERCIANTE</th>
+            <td>{{ data.merchantId }}<td>
+          </tr>
+          <tr>
+            <th scope="row">NO PAGAMENTO</th>
+            <td>{{ data.paymentNode }}<td>
+          </tr>
+          <tr>
+            <th scope="row">ID CNPJ</th>
+            <td>{{ data.cnpjRoot }}<td>
+          </tr>
+          <tr>
+            <th scope="row">DATA</th>
+            <td>{{ data.date }}<td>
+          </tr>
+          <tr>
+            <th scope="row">TIPO PAGAMENTO</th>
+            <td>{{ data.paymentType | uppercase}}<td>
+          </tr>
+          <tr>
+            <th scope="row">BAND. CARTÃO</th>
+            <td>{{ data.cardBrand | uppercase}}<td>
+          </tr>
+          <tr>
+            <th scope="row">CÓD. AUTORIZ...</th>
+            <td>{{ data.authorizationCode }}<td>
+          </tr>
+          <tr>
+            <th scope="row">ID CARTÃO</th>
+            <td>{{ data.truncatedCardNumber }}<td>
+          </tr>
+          <tr>
+            <th scope="row">VALOR BRUTO</th>
+            <td>{{ data.grossAmount | currencyFormat }}<td>
+          </tr>
+          <tr>
+            <th scope="row">VALOR LÍQUIDO</th>
+            <td>{{ data.netAmount | currencyFormat }}<td>
+          </tr>
+          <tr>
+            <th scope="row">TERMINAL</th>
+            <td>{{ data.terminal }}<td>
+          </tr>
+          <tr>
+            <th scope="row">TAXA ADMIN</th>
+            <td>{{ data.administrationFee | currencyFormat }}<td>
+          </tr>
+          <tr>
+            <th scope="row">CANAL DE VENDA</th>
+            <td>{{ data.channel }}<td>
+          </tr>         
+          <tr>
+            <th scope="row">TAXA MDR</th>
+            <td>{{ data.mdrFeeAmount | currencyFormat }}<td>
+          </tr>
+          <tr>
+            <th scope="row">STATUS</th>
+            <td>{{ data.status }}<td>
+          </tr>
+        </tbody>
+      </table>
+      
+      
+    <!-- <li><strong>ID:</strong> {{ data.id }}</li> -->
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="btn btn-primary" mat-button [mat-dialog-close]="true" cdkFocusInitial>fechar</button>
+  </mat-dialog-actions>
+  

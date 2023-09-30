@@ -1,0 +1,55 @@
+<div *ngIf="summary">
+    
+  
+  <div class="row row-mx-10">
+    <div class="col-px-10 mb-5 col-sm-6 col-md-4 col-lg">
+        <div class="card h-100">
+            <div class="card-body d-flex align-items-center">
+                <div><span class="material-icons text-primary me-3 fs-1">shopping_cart</span></div>
+                <div class="mt-3">
+                    <h5 class="font-weight-bold fs-3">{{ summary.totalQuantity }}</h5>
+                    <h6 class="fs-6">TOTAL DE VENDAS</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-px-10 mb-5 col-sm-6 col-md-4 col-lg">
+      <div class="card h-100">
+          <div class="card-body d-flex align-items-center">
+              <div><span class="material-icons text-warning me-3 fs-1">show_chart</span></div>
+              <div class="mt-3">
+                  <h5 class="font-weight-bold fs-4">{{ summary.totalAmount | currencyFormat }}</h5>
+                  <h6 class="fs-6">TOTAL BRUTO</h6>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-px-10 mb-5 col-sm-6 col-md-4 col-lg">
+        <div class="card h-100">
+            <div class="card-body d-flex align-items-center">
+                <div><span class="material-icons text-success me-3 fs-1">attach_money</span></div>
+                <div class="mt-3">
+                    <h5 class="font-weight-bold fs-4">{{ summary.totalNetAmount | currencyFormat }}</h5>
+                    <h6 class="fs-6">TOTAL LÍQUIDO</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-px-10 mb-5 col-sm-6 col-md-4 col-lg">
+      <div class="card h-100" >
+          <div class="card-body d-flex align-items-center">
+              <div><span class="material-icons text-info me-3 fs-1">add_shopping_cart</span></div>
+              <div class="mt-3">
+                  <h5 class="font-weight-bold fs-4">{{ summary.totalAverageAmount | currencyFormat}}</h5>
+                  <h6 class="fs-6">PREÇO MÉDIO/VENDAS</h6>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+</div> 
