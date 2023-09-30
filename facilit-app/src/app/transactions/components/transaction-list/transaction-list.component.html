@@ -3,6 +3,7 @@
   <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
 </mat-form-field>
 <div class="grid-container px-3">
+    <app-download-csv-button></app-download-csv-button>
   
     <div class="mat-elevation-z8 h-100 shadow-none" >
         <div *ngIf="selectedTransaction" class="detail-view">

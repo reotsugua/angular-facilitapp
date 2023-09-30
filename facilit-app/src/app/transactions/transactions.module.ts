@@ -9,6 +9,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TransactionDialogComponent } from './components/transaction-dialog/transaction-dialog.component';
 import { SharedModule } from '../shared/shared.module';
+import { DownloadCsvButtonComponent } from './components/download-csv-button/download-csv-button.component';
 
 
 
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     TransactionListComponent,
-    TransactionDialogComponent
+    TransactionDialogComponent,
+    DownloadCsvButtonComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   exports: [
     TransactionListComponent,
-    TransactionDialogComponent
+    TransactionDialogComponent,
+    DownloadCsvButtonComponent
   ]
 })
 export class TransactionsModule { }
